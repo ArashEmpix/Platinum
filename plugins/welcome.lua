@@ -115,7 +115,7 @@ local function run(msg, matches)
     if matches[1]:lower() == 'unsetgoodbye' and is_momod(msg) then
         return unset_goodbye(msg)
     end
-    if matches[1]:lower() == 'setmemberswelcome' and is_momod(msg) then
+    if matches[1]:lower() == 'setnum' and is_momod(msg) then
         local msg = set_memberswelcome(msg, matches[2])
         if matches[2] == '0' then
             return lang_text('neverWelcome')
@@ -123,7 +123,7 @@ local function run(msg, matches)
             return msg
         end
     end
-    if matches[1]:lower() == 'getmemberswelcome' and is_momod(msg) then
+    if matches[1]:lower() == 'getnum' and is_momod(msg) then
         return get_memberswelcome(msg)
     end
     if (msg.action.type == "chat_add_user" or msg.action.type == "chat_add_user_link") and get_memberswelcome(msg) ~= lang_text('noSetValue') then
@@ -151,7 +151,7 @@ local function run(msg, matches)
 end
 
 return {
-    description = "GOODBYEWELCOME",
+    description = "Good Bye and Welcome For Groups",
     patterns =
     {
         "^[#!/]([Ss][Ee][Tt][Ww][Ee][Ll][Cc][Oo][Mm][Ee]) (.*)$",
@@ -160,8 +160,8 @@ return {
         "^[#!/]([Ss][Ee][Tt][Gg][Oo][Oo][Dd][Bb][Yy][Ee]) (.*)$",
         "^[#!/]([Gg][Ee][Tt][Gg][Oo][Oo][Dd][Bb][Yy][Ee])$",
         "^[#!/]([Uu][Nn][Ss][Ee][Tt][Gg][Oo][Oo][Dd][Bb][Yy][Ee])$",
-        "^[#!/]([Ss][Ee][Tt][Mm][Ee][Mm][Bb][Ee][Rr][Ss][Ww][Ee][Ll][Cc][Oo][Mm][Ee]) (.*)$",
-        "^[#!/]([Gg][Ee][Tt][Mm][Ee][Mm][Bb][Ee][Rr][Ss][Ww][Ee][Ll][Cc][Oo][Mm][Ee])$",
+        "^[#!/]([Ss][Ee][Tt][Nn][Uu][Mm]) (.*)$",
+        "^[#!/]([Gg][Ee][Tt][Nn][Uu][Mm])$",
         "^!!tgservice (.+)$",
     },
     run = run,
