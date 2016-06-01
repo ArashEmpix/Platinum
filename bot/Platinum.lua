@@ -255,8 +255,7 @@ end
 function create_config()
     -- A simple config with basic plugins and ourselves as privileged user
     config = {
-        enabled_plugins =
-        {
+        enabled_plugins = {
             "strings_it",
             "strings_en",
             "administrator",
@@ -301,7 +300,7 @@ function create_config()
         -- Sudo users
         moderation = { data = 'data/moderation.json' },
         ruleta = { db = 'data/ruletadb.json' },
-        about_text = "AISashaSuper by @EricSolinas based on TeleSeed supergroup branch and something of DBTeam.\nThanks guys.",
+        about_text = "",
     }
     serialize_to_file(config, './data/config.lua')
     print('saved config into ./data/config.lua')
