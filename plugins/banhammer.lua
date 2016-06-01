@@ -662,7 +662,7 @@ local function run(msg, matches)
             end
             return ban_list(chat_id)
         end
-        if matches[1]:lower() == 'kickdeleted' or matches[1]:lower() == 'sasha uccidi eliminati' or matches[1]:lower() == 'spara eliminati' then
+        if matches[1]:lower() == 'kickdeleted' then
             -- /kickdeleted
             if msg.to.type == 'chat' then
                 chat_info(get_receiver(msg), kick_deleted_chat, { receiver = get_receiver(msg) })
@@ -696,7 +696,7 @@ local function run(msg, matches)
         end
     end
     if is_admin1(msg) or is_support(msg.from.id) then
-        if matches[1]:lower() == 'gban' or matches[1]:lower() == 'sasha superbanna' or matches[1]:lower() == 'superbanna' then
+        if matches[1]:lower() == 'gban' then
             -- /gban
             if type(msg.reply_id) ~= "nil" then
                 if matches[2] then
@@ -728,7 +728,7 @@ local function run(msg, matches)
                 resolve_username(username, kick_ban_res, cbres_extra)
             end
         end
-        if matches[1]:lower() == 'ungban' or matches[1]:lower() == 'sasha supersbanna' or matches[1]:lower() == 'supersbanna' then
+        if matches[1]:lower() == 'ungban' then
             -- /ungban
             if type(msg.reply_id) ~= "nil" then
                 if matches[2] then
@@ -760,14 +760,14 @@ local function run(msg, matches)
                 resolve_username(username, kick_ban_res, cbres_extra)
             end
         end
-        if matches[1]:lower() == 'gbanlist' or matches[1]:lower() == 'sasha lista superban' or matches[1]:lower() == 'lista superban' then
+        if matches[1]:lower() == 'gbanlist' then
             -- /gbanlist
             local list = banall_list()
-            local file = io.open("./groups/gbanlist.txt", "w")
+            local file = io.open("./groups/gbanlist.htm", "w")
             file:write(list)
             file:flush()
             file:close()
-            send_document(get_receiver(msg), "./groups/gbanlist.txt", ok_cb, false)
+            send_document(get_receiver(msg), "./groups/gbanlist.htm", ok_cb, false)
             send_large_msg(get_receiver(msg), list)
             return list
         end
@@ -797,72 +797,9 @@ return {
         "^[#!/]([Uu][Nn][Gg][Bb][Aa][Nn])$",
         "^[#!/]([Gg][Bb][Aa][Nn][Ll][Ii][Ss][Tt])$",
         "^!!tgservice (.+)$",
-        -- kickme
-        "^([Ss][Aa][Ss][Hh][Aa] [Uu][Cc][Cc][Ii][Dd][Ii][Mm][Ii])$",
-        -- kick
-        "^([Ss][Aa][Ss][Hh][Aa] [Uu][Cc][Cc][Ii][Dd][Ii]) (.*)$",
-        "^([Ss][Aa][Ss][Hh][Aa] [Uu][Cc][Cc][Ii][Dd][Ii])$",
-        "^([Uu][Cc][Cc][Ii][Dd][Ii]) (.*)$",
-        "^([Uu][Cc][Cc][Ii][Dd][Ii])$",
-        "^([Ss][Pp][Aa][Rr][Aa]) (.*)$",
-        "^([Ss][Pp][Aa][Rr][Aa])$",
-        -- kicknouser
-        "^([Ss][Aa][Ss][Hh][Aa] [Uu][Cc][Cc][Ii][Dd][Ii] [Nn][Oo][Uu][Ss][Ee][Rr])$",
-        "^([Ss][Pp][Aa][Rr][Aa] [Nn][Oo][Uu][Ss][Ee][Rr])$",
-        -- kickinactive
-        "^([Ss][Aa][Ss][Hh][Aa] [Uu][Cc][Cc][Ii][Dd][Ii] [Ss][Oo][Tt][Tt][Oo]) (%d+) ([Mm][Ee][Ss][Ss][Aa][Gg][Gg][Ii])$",
-        "^([Ss][Pp][Aa][Rr][Aa] [Ss][Oo][Tt][Tt][Oo]) (%d+) ([Mm][Ee][Ss][Ss][Aa][Gg][Gg][Ii])$",
-        -- kickdeleted
-        "^([Ss][Aa][Ss][Hh][Aa] [Uu][Cc][Cc][Ii][Dd][Ii] [Ee][Ll][Ii][Mm][Ii][Nn][Aa][Tt][Ii])$",
-        "^([Ss][Pp][Aa][Rr][Aa] [Ee][Ll][Ii][Mm][Ii][Nn][Aa][Tt][Ii])$",
-        -- ban
-        "^([Ss][Aa][Ss][Hh][Aa] [Bb][Aa][Nn][Nn][Aa]) (.*)$",
-        "^([Ss][Aa][Ss][Hh][Aa] [Bb][Aa][Nn][Nn][Aa])$",
-        "^([Ss][Aa][Ss][Hh][Aa] [Dd][Ee][Cc][Oo][Mm][Pp][Ii][Ll][Aa]) (.*)$",
-        "^([Ss][Aa][Ss][Hh][Aa] [Dd][Ee][Cc][Oo][Mm][Pp][Ii][Ll][Aa])$",
-        "^([Bb][Aa][Nn][Nn][Aa]) (.*)$",
-        "^([Bb][Aa][Nn][Nn][Aa])$",
-        "^([Dd][Ee][Cc][Oo][Mm][Pp][Ii][Ll][Aa]) (.*)$",
-        "^([Dd][Ee][Cc][Oo][Mm][Pp][Ii][Ll][Aa])$",
-        "^([Ee][Ss][Pp][Ll][Oo][Dd][Ii]) (.*)$",
-        "^([Ee][Ss][Pp][Ll][Oo][Dd][Ii])$",
-        "^([Kk][Aa][Bb][Oo][Oo][Mm]) (.*)$",
-        "^([Kk][Aa][Bb][Oo][Oo][Mm])$",
-        -- unban
-        "^([Ss][Aa][Ss][Hh][Aa] [Ss][Bb][Aa][Nn][Nn][Aa]) (.*)$",
-        "^([Ss][Aa][Ss][Hh][Aa] [Ss][Bb][Aa][Nn][Nn][Aa])$",
-        "^([Ss][Aa][Ss][Hh][Aa] [Rr][Ii][Cc][Oo][Mm][Pp][Ii][Ll][Aa]) (.*)$",
-        "^([Ss][Aa][Ss][Hh][Aa] [Rr][Ii][Cc][Oo][Mm][Pp][Ii][Ll][Aa])$",
-        "^([Ss][Aa][Ss][Hh][Aa] [Cc][Oo][Mm][Pp][Ii][Ll][Aa]) (.*)$",
-        "^([Ss][Aa][Ss][Hh][Aa] [Cc][Oo][Mm][Pp][Ii][Ll][Aa])$",
-        "^([Ss][Bb][Aa][Nn][Nn][Aa]) (.*)$",
-        "^([Ss][Bb][Aa][Nn][Nn][Aa])$",
-        "^([Rr][Ii][Cc][Oo][Mm][Pp][Ii][Ll][Aa]) (.*)$",
-        "^([Rr][Ii][Cc][Oo][Mm][Pp][Ii][Ll][Aa])$",
-        "^([Cc][Oo][Mm][Pp][Ii][Ll][Aa]) (.*)$",
-        "^([Cc][Oo][Mm][Pp][Ii][Ll][Aa])$",
-        -- banlist
-        "^([Ss][Aa][Ss][Hh][Aa] [Ll][Ii][Ss][Tt][Aa] [Bb][Aa][Nn]) (.*)$",
-        "^([Ss][Aa][Ss][Hh][Aa] [Ll][Ii][Ss][Tt][Aa] [Bb][Aa][Nn])$",
-        "^([Ll][Ii][Ss][Tt][Aa] [Bb][Aa][Nn]) (.*)$",
-        "^([Ll][Ii][Ss][Tt][Aa] [Bb][Aa][Nn])$",
-        -- gban
-        "^([Ss][Aa][Ss][Hh][Aa] [Ss][Uu][Pp][Ee][Rr][Bb][Aa][Nn][Nn][Aa]) (.*)$",
-        "^([Ss][Aa][Ss][Hh][Aa] [Ss][Uu][Pp][Ee][Rr][Bb][Aa][Nn][Nn][Aa])$",
-        "^([Ss][Uu][Pp][Ee][Rr][Bb][Aa][Nn][Nn][Aa]) (.*)$",
-        "^([Ss][Uu][Pp][Ee][Rr][Bb][Aa][Nn][Nn][Aa])$",
-        -- ungban
-        "^([Ss][Aa][Ss][Hh][Aa] [Ss][Uu][Pp][Ee][Rr][Ss][Bb][Aa][Nn][Nn][Aa]) (.*)$",
-        "^([Ss][Aa][Ss][Hh][Aa] [Ss][Uu][Pp][Ee][Rr][Ss][Bb][Aa][Nn][Nn][Aa])$",
-        "^([Ss][Uu][Pp][Ee][Rr][Ss][Bb][Aa][Nn][Nn][Aa]) (.*)$",
-        "^([Ss][Uu][Pp][Ee][Rr][Ss][Bb][Aa][Nn][Nn][Aa])$",
-        -- gbanlist
-        "^([Ss][Aa][Ss][Hh][Aa] [Ll][Ii][Ss][Tt][Aa] [Ss][Uu][Pp][Ee][Rr][Bb][Aa][Nn])$",
-        "^([Ll][Ii][Ss][Tt][Aa] [Ss][Uu][Pp][Ee][Rr][Bb][Aa][Nn])$",
     },
     run = run,
     pre_process = pre_process,
-    min_rank = 0
     -- usage
     -- (#kickme|sasha uccidimi)
     -- MOD
