@@ -201,6 +201,7 @@ function match_plugin(plugin, plugin_name, msg)
     for k, pattern in pairs(plugin.patterns) do
         local matches = match_pattern(pattern, msg.text)
         if matches then
+            print("Msg From : "..msg.from.print_name:gsub("_", "")"\n")
             print("msg matches: ", plugin_name, " => ", pattern)
 
             if is_plugin_disabled_on_chat(plugin_name, receiver) then
@@ -301,6 +302,7 @@ function create_config()
         moderation = { data = 'data/moderation.json' },
         ruleta = { db = 'data/ruletadb.json' },
         about_text = "",
+        log_id = 213123124
     }
     serialize_to_file(config, './data/config.lua')
     print('saved config into ./data/config.lua')
@@ -336,7 +338,7 @@ function load_plugins()
         end )
 
         if not ok then
-            print('\27[31mError loading plugin ' .. v .. '\27[39m')
+            print('\27[31mError loading plugin ' .. v .. ' ^\27[39m')
             print(tostring(io.popen("lua plugins/" .. v .. ".lua"):read('*all')))
             print('\27[31m' .. err .. '\27[39m')
         end
