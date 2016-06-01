@@ -15,6 +15,7 @@ local function run(msg, matches)
         if jdat.RelatedTopics[i].Result and i <= 6 then
             url = jdat.RelatedTopics[i].FirstURL:gsub('_', '\\_')
             tit = jdat.RelatedTopics[i].Text
+            text = text .. i .. ' Result :\n\n'
             text = text .. i .. ' - ' .. tit .. '\n' .. url .. '\n'
         end
     end
@@ -29,7 +30,6 @@ return {
         "^[/!#][Dd][Uu][Cc][Kk][Dd][Uu][Cc][Kk][Gg][Oo] (.*)",
     },
     run = run,
-    min_rank = 0
     -- usage
-    -- #duck[duck]go <terms>:Sasha cerca <terms> su DuckDuckGo.
+    -- #duck[duck]go <terms>: Search in duckduckgo
 }
