@@ -19,7 +19,7 @@ local function run(msg, matches)
                 time_msg = tonumber(matches[2])
                 return string.gsub(lang_text('timeBetweenMsgs'), 'X', tostring(time_msg))
             end
-        elseif matches[1]:lower() == 'spam' or matches[1]:lower() == 'sasha spamma' or matches[1]:lower() == 'spamma' then
+        elseif matches[1]:lower() == 'spam' then
             local i = 0
             if text then
                 if num_msg == "nil" then
@@ -60,9 +60,6 @@ return {
         "^[#!/]([Ss][Ee][Tt][Ss][Pp][Aa][Mm]) (.+)$",
         "^[#!/]([Ss][Ee][Tt][Mm][Ss][Gg][Ss]) (.+)$",
         "^[#!/]([Ss][Ee][Tt][Ww][Aa][Ii][Tt]) (.+)$",
-        -- spam
-        "^([Ss][Aa][Ss][Hh][Aa] [Ss][Pp][Aa][Mm][Mm][Aa])$",
-        "^([Ss][Pp][Aa][Mm][Mm][Aa])$",
     },
     run = run,
     min_rank = 2
