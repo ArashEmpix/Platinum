@@ -1,4 +1,4 @@
-#Installion 
+<i>#Instalion</i>
 
 
 
@@ -23,7 +23,7 @@ chmod +x launch.sh
 ./launch.sh #It WIll Ask you Phone number and code
 ```
 
-Now your Bot Is Installed
+<i>Now your Bot Is Installed</i>
 
 <b>Contact us :</b>
 
@@ -32,6 +32,8 @@ Now your Bot Is Installed
 [Github](https://github.com/ArashEmpix)
 
 [TelegramBot](https://telegram.me/W_Platinum_W)
+
+<i>Other Projects :</i>
 
 
 
