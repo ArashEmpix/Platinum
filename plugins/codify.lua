@@ -1,4 +1,4 @@
-﻿-- modify lua-tg.c, search for case lq_msg and replace 0 with TGLMF_HTML, save and make
+
 local function callback_reply(extra, success, result)
     send_large_msg('chat#id' .. result.to.peer_id, "<code>" .. result.text .. "</code>")
     send_large_msg('channel#id' .. result.to.peer_id, "<code>" .. result.text .. "</code>")
@@ -23,7 +23,7 @@ local function run(msg, matches)
 end
 
 return {
-    description = "CODIFY",
+    description = "Codify Plugin THanks to @MEhran_HPR",
     patterns =
     {
         "^[#!/]([Cc][Oo][Dd][Ii][Ff][Yy])$",
@@ -31,8 +31,4 @@ return {
     },
     run = run,
     min_rank = 1
-    -- usage
-    -- MOD
-    -- #codify <text>|<reply>
 }
--- thanks to @Mehran_HPR
