@@ -44,7 +44,7 @@
 end
 
 return {
-    description = "APOD",
+    description = "APod Plugin",
     patterns =
     {
         "^[#!/]([Aa][Pp][Oo][Dd])$",
@@ -52,21 +52,8 @@ return {
         "^[#!/]([Aa][Pp][Oo][Dd][Hh][Dd])$",
         "^[#!/]([Aa][Pp][Oo][Dd][Hh][Dd]) (%d%d%d%d%-%d%d%-%d%d)$",
         "^[#!/]([Aa][Pp][Oo][Dd][Tt][Ee][Xx][Tt])$",
-        "^[#!/]([Aa][Pp][Oo][Dd][Tt][Ee][Xx][Tt]) (%d%d%d%d%-%d%d%-%d%d)$",
-        -- apod
-        "^[#!/]([Aa][Ss][Tt][Rr][Oo])$",
-        "^[#!/]([Aa][Ss][Tt][Rr][Oo]) (%d%d%d%d%-%d%d%-%d%d)$",
-        -- apodhd
-        "^[#!/]([Aa][Ss][Tt][Rr][Oo][Hh][Dd])$",
-        "^[#!/]([Aa][Ss][Tt][Rr][Oo][Hh][Dd]) (%d%d%d%d%-%d%d%-%d%d)$",
-        -- apodtext
-        "^[#!/]([Aa][Ss][Tt][Rr][Oo][Tt][Ee][Xx][Tt])$",
-        "^[#!/]([Aa][Ss][Tt][Rr][Oo][Tt][Ee][Xx][Tt]) (%d%d%d%d%-%d%d%-%d%d)$",
+        "^[#!/]([Aa][Pp][Oo][Dd][Tt][Ee][Xx][Tt]) (%d%d%d%d%-%d%d%-%d%d)$"
     },
     run = run,
     min_rank = 0
-    -- usage
-    -- #(apod|astro) [<date>]
-    -- #(apod|astro)hd [<date>]
-    -- #(apod|astro)text [<date>]
 }
