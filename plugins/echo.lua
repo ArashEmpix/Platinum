@@ -6,16 +6,11 @@
 end
 
 return {
-    description = "ECHO",
+    description = "Echo Plugin",
     patterns =
     {
-        "^[#!/][Ee][Cc][Hh][Oo] +(.+)$",
-        -- echo
-        "^[Ss][Aa][Ss][Hh][Aa] [Rr][Ii][Pp][Ee][Tt][Ii] +(.+)$",
+        "^[#!/][Ee][Cc][Hh][Oo] +(.+)$"
     },
     run = run,
     min_rank = 1
-    -- usage
-    -- MOD
-    -- (#echo|sasha ripeti) <text>
 }
